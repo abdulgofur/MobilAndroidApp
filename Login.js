@@ -65,7 +65,7 @@ export default class Home extends Component {
 
 
                 <Form>
-                    <Button style={styles.posisitionButton} block light onPress={this._login}><Text> Login </Text></Button>
+                    <Button style={styles.posisitionButton} block light onPress={this._auth}><Text> Login </Text></Button>
                 </Form>
 
                 <View>
@@ -132,7 +132,7 @@ export default class Home extends Component {
             email: this.state.username,
             password: this.state.password
         }
-        Axios.post('http://192.168.1.32:8080/login?access_token=626cad98-3f7b-458d-a085-8e26fba56910', data)
+        Axios.post('http://192.168.1.32:8080/login?access_token=4a8c0b5e-da89-4413-bd08-420d83f453a7', data)
             .then(async (result) => {
                 const response = result.data;
                 // alert(JSON.stringify(response))

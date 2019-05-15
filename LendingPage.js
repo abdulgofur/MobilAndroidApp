@@ -2,9 +2,7 @@ import React, { Component } from 'react';
 import { StyleSheet, Image, Text } from 'react-native';
 import { Container, Header, Left, Body, Right, Title, Subtitle, Thumbnail, Button, Icon, View } from 'native-base';
 
-import { signOut, isSignedIn } from './auth';
-
-export default class Home extends Component {
+export default class LendingPage extends Component {
     static navigationOptions = {
         header: null
     }
@@ -39,35 +37,11 @@ export default class Home extends Component {
                     </Right>
                 </Header>
 
-                <Button transparent onPress={this._checkLogin}><Text>check Login</Text></Button>
-
-                
+                <Button transparent onPress={this._checkLogin}><Text>check Login</Text></Button>  
             </View>
         );
     }
-    // _openDrawer = () => {
-    //     this.props.navigation.openDrawer();
-    // }
-
-    _checkLogin = async () => {
-        const login = await isSignedIn();
-        if (login) {
-            alert('True');
-        } else {
-            alert('Flase');
-        }
-    }
-
-    _removeLog = async () => {
-        const login = await signOut();
-        if (login)  {
-            alert('LOGOUT SUCCESS');
-            ;
-        }else{
-            alert('LOGOUT SUCCESS');
-            this.props.navigation.navigate('Login');
-        }
-    }
+    
 }
 
 const styles = StyleSheet.create({
