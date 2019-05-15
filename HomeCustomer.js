@@ -14,15 +14,29 @@ export default class Home extends Component {
             <View>
                 <Header style={{ backgroundColor: '#1e3f44', height: 650 }}>
                     <Left>
-                        <Image
-                            style={{ width: 300, height: 300}}
-                            source={require('../MobileAndroidApp/resources/logo-png.png')}
+                        <Thumbnail
+                            style={{ width: 50, height: 50, marginRight: 20 }}
+                            source={require('../MobileAndroidApp/resources/A-Bank.jpg')}
                         />
                     </Left>
                     <Body>
                         <Title>A-Bank</Title>
                         <Subtitle>Good People Growth</Subtitle>
                     </Body>
+
+                    <Right>
+                    <Button transparent onPress={this._removeLog}>
+                    <Image
+                            style={{ width: 20, height: 20}} 
+                            source={require('../MobileAndroidApp/resources/Icon/Icon-logout.png')}
+                            onPress={this._removeLog}
+                        />
+                    </Button>
+                   
+                        {/* <Button transparent onPress={this._openDrawer}>
+                            <Icon name="menu" />
+                        </Button> */}
+                    </Right>
                 </Header>
 
                 <Button transparent onPress={this._checkLogin}><Text>check Login</Text></Button>
