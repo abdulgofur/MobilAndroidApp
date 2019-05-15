@@ -24,58 +24,58 @@ export default class Home extends Component {
     render() {
         return (
             <ScrollView>
-            <View style={{ backgroundColor: '#1e3f44', height: 650 }}>
-                {/* <Grid style={{ flexDirection: "row" }}>
+                <View style={{ backgroundColor: '#1e3f44', height: 650 }}>
+                    {/* <Grid style={{ flexDirection: "row" }}>
                     <Col style={{ backgroundColor: '#1e3f44', height: 650 }}></Col>
                 </Grid> */}
 
-                <View style={{ justifyContent: "center", height: 200 }} >
-                    <Thumbnail style={styles.logoContainer}
-                        source={require('../MobileAndroidApp/resources/logo.png')}
-                    />
-                </View>
-
-
-                <Form>
-                    <Card>
-                        <Text style={styles.headerLogin}>Login <Icon name="unlock" /> </Text>
-                    </Card>
-                    <Item stackedLabel style={styles.textLogin}>
-                        <Label style={{ color: 'white' }}>UserName</Label>
-                        <Input style={{ color: 'white', fontSize: 13 }} floatingLabel value={this.state.username}
-                            onChangeText={
-                                (user) => {
-                                    this.setState({ username: user })
-                                }
-                            }
+                    <View style={{ justifyContent: "center", height: 200 }} >
+                        <Thumbnail style={styles.logoContainer}
+                            source={require('../MobilAndroidApp/resources/logo.png')}
                         />
-                    </Item>
+                    </View>
 
-                    <Item stackedLabel style={styles.textLogin}>
-                        <Label style={{ color: 'white' }}>Password</Label>
-                        <Input style={{ color: 'white', fontSize: 13 }} secureTextEntry={true} value={this.state.password}
-                            onChangeText={
-                                (pass) => {
-                                    this.setState({ password: pass })
+
+                    <Form>
+                        <Card>
+                            <Text style={styles.headerLogin}>Login <Icon name="unlock" /> </Text>
+                        </Card>
+                        <Item stackedLabel style={styles.textLogin}>
+                            <Label style={{ color: 'white' }}>UserName</Label>
+                            <Input style={{ color: 'white', fontSize: 13 }} floatingLabel value={this.state.username}
+                                onChangeText={
+                                    (user) => {
+                                        this.setState({ username: user })
+                                    }
                                 }
-                            }
-                        />
-                    </Item>
-                </Form>
+                            />
+                        </Item>
+
+                        <Item stackedLabel style={styles.textLogin}>
+                            <Label style={{ color: 'white' }}>Password</Label>
+                            <Input style={{ color: 'white', fontSize: 13 }} secureTextEntry={true} value={this.state.password}
+                                onChangeText={
+                                    (pass) => {
+                                        this.setState({ password: pass })
+                                    }
+                                }
+                            />
+                        </Item>
+                    </Form>
 
 
-                <Form>
-                    <Button style={styles.posisitionButton} block light onPress={this._login}><Text> Login </Text></Button>
-                </Form>
+                    <Form>
+                        <Button style={styles.posisitionButton} block light onPress={this._auth}><Text> Login </Text></Button>
+                    </Form>
 
-                <View>
-                    <Text style={{ color: 'white', justifyContent: "center", alignSelf: "center", fontSize: 15 }}
-                    >Create New Account ? . </Text>
-                    <TouchableOpacity style={{ alignSelf: "center" }} small onPress={() => this.props.navigation.navigate('Register')} title="Register">
-                        <Text style={{ color: 'black' }}>SignUp</Text>
-                    </TouchableOpacity>
+                    <View>
+                        <Text style={{ color: 'white', justifyContent: "center", alignSelf: "center", fontSize: 15 }}
+                        >Create New Account ? . </Text>
+                        <TouchableOpacity style={{ alignSelf: "center" }} small onPress={() => this.props.navigation.navigate('Register')} title="Register">
+                            <Text style={{ color: 'black' }}>SignUp</Text>
+                        </TouchableOpacity>
+                    </View>
                 </View>
-            </View>
             </ScrollView>
         )
     }

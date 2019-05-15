@@ -3,7 +3,7 @@ import { createStackNavigator, createAppContainer, createBottomTabNavigator, cre
 
 import Home from './Home';
 import Login from './Login';
-import Register from './Register'
+import Register from './customer/Register'
 
 const RootStack = createStackNavigator({
   Login: { screen: Login },

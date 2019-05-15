@@ -16,7 +16,7 @@ export default class Home extends Component {
                     <Left>
                         <Thumbnail
                             style={{ width: 50, height: 50, marginRight: 20 }}
-                            source={require('../MobileAndroidApp/resources/A-Bank.jpg')}
+                            source={require('../MobilAndroidApp/resources/A-Bank.jpg')}
                         />
                     </Left>
                     <Body>
