@@ -9,13 +9,13 @@ export default class Register extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            thisCustomer: {
+            // thisCustomer: {
                 firstName: '',
                 lastName: '',
                 birthDate: '',
                 email: '',
                 password: ''
-            }
+            // }
         }
     }
     static navigationOptions = {
@@ -85,47 +85,39 @@ export default class Register extends Component {
                                 }
                             />
                         </Item>
-                                
-                        <Item stackedLabel style={styles.textLogin}>
-                            <Label style={{ color: 'white' }}>No.Ktp</Label>
-                            <Input style={{ color: 'white', fontSize: 13 }} value={this.state.ktp}
-                                onChangeText={
-                                    (pass) => {
-                                        this.setState({ ktp: pass })
-                                    }
-                                }
-                            />
-                        </Item>
-
-                        <Item stackedLabel style={styles.textLogin}>
-                            <Label style={{ color: 'white' }}>Nama Ibu</Label>
-                            <Input style={{ color: 'white', fontSize: 13 }} value={this.state.namaIbu}
-                                onChangeText={
-                                    (pass) => {
-                                        this.setState({ namaIbu: pass })
-                                    }
-                                }
-                            />
-                        </Item>
-
-                        <Item stackedLabel style={styles.textLogin}>
-                            <Label style={{ color: 'white' }}>Telp</Label>
-                            <Input style={{ color: 'white', fontSize: 13 }} value={this.state.telepon}
-                                onChangeText={
-                                    (pass) => {
-                                        this.setState({ telepon: pass })
-                                    }
-                                }
-                            />
-                        </Item>
-                        <Button style={styles.posisitionButton} block light onPress={this._login}><Text> Register </Text></Button>
+                        <Button style={styles.posisitionButton} block light onPress={this._register}><Text> Register </Text></Button>
                     </Form>
                 </View>
             </ScrollView>
         )
     }
 
-
+    _register = async () => {
+        const data = {
+            firstName: this.state.username,
+            lastName: this.state.lastName,
+            birthDate: this.state.birthDate,
+            email: this.state.email,
+            password: this.state.password
+        }
+        Axios.post('http://192.168.1.32:8080/cust?access_token=626cad98-3f7b-458d-a085-8e26fba56910', data)
+            .then(async (result) => {
+                const response = result.data;
+                // alert(JSON.stringify(response))
+                console.log(JSON.stringify(response));
+                if (response.responsCode == '01') {
+                    const login = await signIn(this.state.username, this.state.password);
+                    if (login) {
+                        this.props.navigation.navigate('Home');
+                        alert('Login Success');
+                    } else {
+                        alert('Login Failed');
+                    }
+                } else {
+                    alert('Invalid Username or Password !');
+                }
+            });
+    }
 
 }
 
